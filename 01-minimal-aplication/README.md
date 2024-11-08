@@ -1,93 +1,53 @@
-
-Esse código é um exemplo básico de uma aplicação web usando o Flask, que é um micro-framework para desenvolvimento de aplicações web em Python. Vamos detalhar cada parte:
-
-from flask import Flask:
-
-Essa linha importa a classe Flask do módulo flask. A classe Flask é usada para criar uma aplicação web em Flask.
-app = Flask(__name__):
-
-Aqui, uma instância da aplicação Flask é criada e atribuída à variável app.
-O argumento __name__ informa ao Flask o nome do módulo atual, o que ajuda o Flask a localizar recursos relacionados, como templates e arquivos estáticos, e permite que ele configure corretamente o caminho das rotas.
-@app.route('/'):
-
-Esse é um decorator que define uma rota (endpoint) na aplicação web. No Flask, o decorator @app.route mapeia URLs para funções Python.
-Neste caso, @app.route('/') define que a função logo abaixo do decorator (hello_world) será chamada quando alguém acessar a rota raiz (/) do site, como http://localhost:5000/.
-def hello_world()::
-
-Essa é a função que será executada quando a rota '/' for acessada.
-No Flask, qualquer função associada a uma rota é chamada de view function, pois ela gera a resposta que será exibida ao usuário.
-return "Hello, World":
-
-Esta linha define a resposta que será enviada ao navegador. Nesse caso, quando alguém acessa a rota '/', a string "Hello, World" é retornada como a resposta da página.
-Essa string será renderizada diretamente como texto no navegador.
-
-Para rodar a aplicação, você geralmente adicionaria algo como:
-
-    if __name__ == '__main__':
-        app.run(debug=True)
-
-    O modo debug possibilita que qualquer alteração no código, permita atualização na hora no server da aplicação
 # Exemplo Básico de Aplicação Web com Flask
 
-Este código é um exemplo básico de uma aplicação web usando o Flask, um micro-framework para desenvolvimento de aplicações web em Python. Vamos detalhar cada parte do código:
+Este repositório contém um exemplo básico de uma aplicação web utilizando o **Flask**, um micro-framework popular para o desenvolvimento de aplicações web em **Python**. Vamos detalhar cada parte do código e como ele contribui para a criação dessa aplicação simples.
 
-## 1. Importando a Classe Flask
+---
 
-A linha abaixo importa a classe `Flask` do módulo `flask`. A classe `Flask` é usada para criar uma aplicação web em Flask. 
+## Descrição
 
-```python
-from flask import Flask
-```
+O Flask é um framework leve e flexível para a criação de aplicações web. Ele permite que você desenvolva aplicações de forma rápida e eficiente, com o mínimo de configuração. Neste exemplo, criaremos uma aplicação básica que responde com "Hello, World" quando acessada.
 
+---
 
-## 2. Criando uma Instância da Aplicação
+## Estrutura do Código
 
-Aqui, uma instância da aplicação Flask é criada e atribuída à variável `app`. O argumento `__name__` fornece o nome do módulo atual ao Flask, o que ajuda o Flask a localizar recursos relacionados, como templates e arquivos estáticos, e permite que ele configure corretamente o caminho das rotas.
+### 1. Importando a Classe Flask
 
-```python
-app = Flask(name)
-```
+A primeira linha do código importa a classe `Flask` do módulo `flask`. A classe `Flask` é a base para criar uma aplicação web com Flask.
 
-## 3. Definindo uma Rota (Endpoint)
+### 2. Criando uma Instância da Aplicação
 
-Este é um **decorator** que define uma rota (endpoint) na aplicação web. No Flask, o decorator `@app.route` mapeia URLs para funções Python.
+Aqui, criamos uma instância da aplicação Flask, atribuindo-a à variável `app`. O argumento `__name__` é passado para o Flask para informar o nome do módulo atual, o que ajuda o Flask a localizar recursos relacionados, como templates e arquivos estáticos.
 
-- `@app.route('/')` define que a função logo abaixo do decorator (neste caso, `hello_world`) será chamada quando alguém acessar a rota raiz (`/`) do site, como em `http://localhost:5000/`.
+### 3. Definindo uma Rota (Endpoint)
 
-```python
-@app.route('/') 
-def hello_world(): 
-    return "Hello, World"
-```
+Em Flask, usamos **decorators** para mapear URLs para funções Python. No caso da nossa aplicação, o decorator `@app.route('/')` define que a função `hello_world()` será chamada quando alguém acessar a rota raiz (`/`) do site.
 
-## 4. Função de Visualização (View Function)
+- **Explicação**: O `@app.route('/')` mapeia a URL raiz (`/`) para a função `hello_world`, que retorna a string `"Hello, World"` como resposta.
 
-A função `hello_world` é chamada de **view function**, pois ela gera a resposta que será exibida ao usuário ao acessar a rota especificada (`/`).
+### 4. Função de Visualização (View Function)
 
-- **Resposta**: `return "Hello, World"` retorna a string `"Hello, World"` como resposta da página, que será renderizada diretamente como texto no navegador.
+A função associada a uma rota em Flask é chamada de **view function**. No nosso caso, a função `hello_world()` gera a resposta que será exibida ao usuário quando ele acessar a URL especificada (`/`).
 
-## 5. Rodando a Aplicação
+- **Explicação**: A linha `return "Hello, World"` envia a string `"Hello, World"` de volta ao navegador como resposta da página.
 
-Para rodar a aplicação, você geralmente adicionaria o seguinte bloco de código ao final do arquivo Python:
+### 5. Rodando a Aplicação
 
-```python 
-if name == 'main': 
-    app.run(debug=True)
-```
+Por fim, para rodar a aplicação, é necessário verificar se o script está sendo executado diretamente e chamar o método `run()` da instância `app`.
 
-- **`debug=True`**: Ativa o modo debug, permitindo recarregar a aplicação automaticamente ao fazer alterações no código. Ele também exibe mensagens de erro detalhadas para facilitar o desenvolvimento.
+- **Explicação**: A verificação `if __name__ == '__main__'` garante que a aplicação será executada apenas quando o script for rodado diretamente (não quando importado). O parâmetro `debug=True` ativa o modo de depuração, permitindo que o servidor recarregue automaticamente quando houver mudanças no código.
+
+---
 
 ## Resumo do Código Completo
 
-Agora, o código completo do arquivo Python deve ser:
+No final, você terá uma aplicação simples que mapeia uma rota para exibir "Hello, World" ao ser acessada.
 
-```python 
-from flask import Flask app = Flask(name)
+---
 
-@app.route('/') 
-def hello_world(): 
-    return "Hello, World"
+## Conclusão
 
-if name == 'main': 
-    app.run(debug=True)
-```
+Esse exemplo básico demonstra como é simples criar uma aplicação web com Flask. Ele apresenta os conceitos fundamentais, como criar rotas, associá-las a funções e rodar a aplicação com o servidor embutido do Flask.
+
+Se você deseja expandir esta aplicação, pode adicionar novas rotas, templates HTML, manipulação de formulários e muito mais. O Flask é uma excelente escolha para aplicações web leves e escaláveis.
