@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>Market Page</title>
 </head>
 
 <body>
@@ -22,10 +22,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Market</a>
+                    <a class="nav-link" href="#">Market <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -38,7 +38,43 @@
             </ul>
         </div>
     </nav>
-    <h1>Home Page</h1>
+    <h1>Market Page</h1>
+    <!--Exemplo 1-->
+    <!--Chamada da variavel 'item_name' definida dentro do retorno da rota da pagina 'market'-->
+    <!--<p>{{ item_name }}</p>-->
+
+    <!--Exemplo 2-->
+    <!--Chamada da variavel 'items' para chamada de multiplos dados via dicionario-->
+    <!--<p>{{ items }}</p>-->
+
+    <!--Exemplo 3 Formatando dados-->
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope='col'>ID</th>
+                <th scope='col'>Name</th>
+                <th scope='col'>Barcode</th>
+                <th scope='col'>Price</th>
+                <th scope='col'>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Aqui usamos a escrita JINJA para lógica de programação do flask no html-->
+            <!--Aqui também conseguimos acessar diretamente os dados do dicionario definido na var 'items'-->
+            {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.barcode }}</td>
+                <td>{{ item.price }}$</td>
+                <td>
+                    <button class="btn btn-outline btn-info">More Info</button>
+                    <button class="btn btn-outline btn-success">Purchase</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
