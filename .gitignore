@@ -1,0 +1,3 @@
+# Ignorando pastas
+env-aprendizado-flask/
+__pycache__/
