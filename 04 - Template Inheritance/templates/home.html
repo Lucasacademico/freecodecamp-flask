@@ -1,0 +1,13 @@
+<!--Código jinja que puxa a base através da herança de template do 'base.html'-->
+{% extends 'base.html' %}
+
+<!--Esste bloco faz conexão com o bloco da 'base.html' para nomear o título da página.-->
+{% block title %}
+    Home Page
+{% endblock %}
+
+<!--Chamada do bloco do conteúdo no 'base.html'-->
+{% block content %}
+    This is our content for the Home Page
+{% endblock %}
+
